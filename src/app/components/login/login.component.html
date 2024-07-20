@@ -1,1 +1,19 @@
-<p>login works!</p>
+<div class="login-container">
+    <div class="user-icon">
+      <img src="assets/Group.png" alt="User Icon">
+    </div>
+    <form>
+        <mat-form-field class="login-input">
+            <input matInput placeholder="Login" formControlName="login" required>
+        <mat-error *ngIf="loginForm.get('login')!.hasError('required')">O login é obrigatório</mat-error>
+        </mat-form-field>
+
+        <mat-form-field class="login-input">
+            <input matInput placeholder="password" formControlName="password" required>
+        <mat-error *ngIf="loginForm.get('password')!.hasError('required')">O login é obrigatório</mat-error>
+        </mat-form-field>
+
+        <button mat-stroked-button>login</button>
+    </form>
+  </div>
+  
