@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject, inject } from '@angular/core';
 import { NgIf } from '@angular/common';
 
 import {MatInputModule} from '@angular/material/input';
@@ -7,6 +7,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from '../../service/auth.service';
+
 
 
 
@@ -25,13 +27,13 @@ import { Router } from '@angular/router';
   styleUrl: './login.component.css',
 })
 export class LoginComponent {
-
+// o login esta com problema sugiro comessar do 0
   
   loginForm!: FormGroup;
 
   constructor(
 
-    //private authService: AuthService,
+    private authService: AuthService,
     private formBuilder: FormBuilder,
     private router: Router,
     private snackBar: MatSnackBar
@@ -40,15 +42,16 @@ export class LoginComponent {
 
   ngOnInit(): void {
     this.loginForm = this.formBuilder.group({
-      login: ['', [Validators.required, Validators.minLength(2)]],
+      login: ['', [Validators.required, Validators.minLength(1)]],
       password: ['', [Validators.required, Validators.minLength(2)]]
     });
   }
   onSubmit() {
-    /*if (this.loginForm.valid) {
-      const email = this.loginForm.get('email')!.value;
+
+    if (this.loginForm.valid) {
+      const login = this.loginForm.get('login')!.value;
       const password = this.loginForm.get('password')!.value;
-      this.authService.login(email, password).subscribe({
+      this.authService.login(login, password).subscribe({
         next: (resp) => {
           // redirecionar para a página principal
           this.router.navigateByUrl('/home');
@@ -60,12 +63,10 @@ export class LoginComponent {
       });
     } else {
       this.showSnackbarTopPosition("Dados inválidos", 'Fechar', 2000);
-    }*/
+    }
   }
 
-  /*onRegister() {
-    // criar usuário
-  }
+  
 
   showSnackbarTopPosition(content: any, action: any, duration: any) {
     this.snackBar.open(content, action, {
@@ -73,6 +74,13 @@ export class LoginComponent {
       verticalPosition: "top", // Allowed values are  'top' | 'bottom'
       horizontalPosition: "center" // Allowed values are 'start' | 'center' | 'end' | 'left' | 'right'
     });
-  }*/
+  }
+  
+  
 
 }
+
+  
+
+  
+

@@ -1,0 +1,22 @@
+.upload-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.document-upload {
+  margin-bottom: 20px;
+}
+
+.file-input-container {
+  display: flex;
+  align-items: center;
+}
+
+input[type="file"] {
+  margin-right: 10px;
+}
+.lable{
+  font-family: Arial;
+  font-size: 150%;
+}

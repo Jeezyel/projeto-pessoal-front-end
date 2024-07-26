@@ -1,13 +1,27 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'projeto-pessoal';
+  constructor(
+    private router: Router,
+  ){
+
+  }
+  
+  irParaLogin(){
+    this.router.navigateByUrl('/login')
+  }
+  irParaUpload(){
+    this.router.navigateByUrl('/upload')
+  }
+
 }
