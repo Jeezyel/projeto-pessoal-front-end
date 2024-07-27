@@ -23,5 +23,8 @@ export class AppComponent {
   irParaUpload(){
     this.router.navigateByUrl('/upload')
   }
+  irParaHome(){
+    this.router.navigateByUrl('/home')
+  }
 
 }
