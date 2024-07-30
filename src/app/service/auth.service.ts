@@ -37,11 +37,10 @@ export class AuthService {
   }
 
 
-  login(email: string, senha: string): Observable<any> {
+ /* login(login: string, senha: string): Observable<any> {
     const params = {
-      login: email,
-      senha: senha,
-      perfil: 1 // paciente 
+      login: login,
+      senha: senha
     }
 
     //{ observe: 'response' } para garantir que a resposta completa seja retornada (incluindo o cabeçalho)
@@ -59,7 +58,16 @@ export class AuthService {
         }
       })
     );
-  }
+  }*/
+
+    login(login: string, senha: string): Observable<any> {
+
+      const params = {
+        login: login,
+        senha: senha
+      }
+      return this.http.post(`${this.baseURL}`, params, {observe: 'response'})
+    }
 
   setUsuarioLogado(usuario: Usuario): void {
     this.localStorageService.setItem(this.usuarioLogadoKey, usuario);
